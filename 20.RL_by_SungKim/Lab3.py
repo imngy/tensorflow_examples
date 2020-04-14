@@ -40,7 +40,7 @@ for i in range(num_episodes):
         new_state, reward, done, _ = env.step(action)
         # print "State : newState ", state, " : ", new_state
         # print "Reward : ", reward
-        print "Q[%d, %d] = %d + %d(Q[%d, :])" % (state, action, reward, np.max(Q[new_state, :]), new_state)
+        print("Q[%d, %d] = %d + %d(Q[%d, :])") #(state, action, reward, np.max(Q[new_state, :]), new_state)
 
         Q[state, action] = reward + np.max(Q[new_state, :])
 
@@ -48,9 +48,9 @@ for i in range(num_episodes):
         state = new_state
 
     rList.append(rAll)
-    print i, "st Q "
-    print Q
-    print np.reshape(Q, (4, 4, 4) )
+    print(i, "st Q ")
+    print(Q)
+    print(np.reshape(Q, (4, 4, 4) ))
 
 print("Success rate : ", str(sum(rList)/num_episodes))
 print("Final Q-Table Values")
